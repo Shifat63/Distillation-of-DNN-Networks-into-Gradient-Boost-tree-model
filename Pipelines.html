@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Pipelines</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Pipelines</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:e%3A%5Cmyproject%5Cws_20_21%5Cknowledgedistillation%5Cpipelines.py">e:\myproject\ws_20_21\knowledgedistillation\pipelines.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="GetTrainAndTestData.html">GetTrainAndTestData</a><br>
+<a href="GBT.html">GBT</a><br>
+</td><td width="25%" valign=top><a href="NN.html">NN</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="torch.html">torch</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-firstPipeline"><strong>firstPipeline</strong></a>(train_dl, model, xTest, yTest)</dt><dd><tt>Implements&nbsp;the&nbsp;first&nbsp;pipeline.&nbsp;Steps&nbsp;are<br>
+1.&nbsp;Get&nbsp;soft&nbsp;labels&nbsp;from&nbsp;trained&nbsp;NN&nbsp;model<br>
+2.&nbsp;Train&nbsp;GBT&nbsp;with&nbsp;the&nbsp;soft&nbsp;labels<br>
+&nbsp;<br>
+Finally&nbsp;it&nbsp;calculates&nbsp;the&nbsp;accuracy&nbsp;of&nbsp;trained&nbsp;GBT&nbsp;model<br>
+with&nbsp;respect&nbsp;to&nbsp;test&nbsp;data.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+train_dl&nbsp;:&nbsp;Training&nbsp;data<br>
+model&nbsp;:&nbsp;Trained&nbsp;Neural&nbsp;Network&nbsp;model<br>
+xTest&nbsp;:&nbsp;Test&nbsp;inputs<br>
+yTest&nbsp;:&nbsp;Desired(actual)&nbsp;outputs&nbsp;for&nbsp;test&nbsp;inputs<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+None.</tt></dd></dl>
+ <dl><dt><a name="-gbtWithHardLabels"><strong>gbtWithHardLabels</strong></a>(xTrain, yTrain, xTest, yTest)</dt><dd><tt>Train&nbsp;GBT&nbsp;with&nbsp;Hard&nbsp;labels&nbsp;and&nbsp;calculate&nbsp;it's&nbsp;accuracy&nbsp;with&nbsp;test&nbsp;data.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+xTrain&nbsp;:&nbsp;Training&nbsp;inputs<br>
+yTrain&nbsp;:&nbsp;Training&nbsp;outputs&nbsp;(Teacher&nbsp;value)<br>
+xTest&nbsp;:&nbsp;Test&nbsp;inputs<br>
+yTest&nbsp;:&nbsp;Desired(actual)&nbsp;outputs&nbsp;for&nbsp;test&nbsp;inputs<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+None.</tt></dd></dl>
+ <dl><dt><a name="-secondPipeline"><strong>secondPipeline</strong></a>(train_dl, model, xTest, yTest)</dt><dd><tt>Implements&nbsp;the&nbsp;second&nbsp;pipeline.&nbsp;Steps&nbsp;are<br>
+1.&nbsp;Get&nbsp;learned&nbsp;features&nbsp;from&nbsp;trained&nbsp;NN&nbsp;model<br>
+2.&nbsp;Feed&nbsp;the&nbsp;learned&nbsp;features&nbsp;to&nbsp;the&nbsp;Helper&nbsp;classifier<br>
+3.&nbsp;Train&nbsp;GBT&nbsp;with&nbsp;the&nbsp;soft&nbsp;labels&nbsp;obtained&nbsp;from&nbsp;helper&nbsp;classifier<br>
+&nbsp;<br>
+Finally&nbsp;it&nbsp;calculates&nbsp;the&nbsp;accuracy&nbsp;of&nbsp;trained&nbsp;GBT&nbsp;model<br>
+with&nbsp;respect&nbsp;to&nbsp;test&nbsp;data.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+train_dl&nbsp;:&nbsp;Training&nbsp;data<br>
+model&nbsp;:&nbsp;Trained&nbsp;Neural&nbsp;Network&nbsp;model<br>
+xTest&nbsp;:&nbsp;Test&nbsp;inputs<br>
+yTest&nbsp;:&nbsp;Desired(actual)&nbsp;outputs&nbsp;for&nbsp;test&nbsp;inputs<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+None.</tt></dd></dl>
+ <dl><dt><a name="-trainAndSaveNN"><strong>trainAndSaveNN</strong></a>(train_dl, test_dl, model)</dt><dd><tt>Train&nbsp;the&nbsp;Neural&nbsp;Network&nbsp;and&nbsp;save&nbsp;the&nbsp;trained&nbsp;model<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+train_dl&nbsp;:&nbsp;Training&nbsp;data<br>
+test_dl&nbsp;:&nbsp;Test&nbsp;data<br>
+model&nbsp;:&nbsp;Neural&nbsp;Network&nbsp;model<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+None.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>acc</strong> = 0.9675324675324676<br>
+<strong>i</strong> = 716<br>
+<strong>inputs</strong> = tensor([[-0.5993, -1.5117,  0.0559,  0.1364,  0....   -0.7123, -0.9123, -0.6241, -0.7320, -0.5221]])<br>
+<strong>model</strong> = MLP(
+  (hidden1): Linear(in_features=13, out_fea... out_features=1, bias=True)
+  (act3): Sigmoid()
+)<br>
+<strong>targets</strong> = tensor([[1.]])<br>
+<strong>test_dl</strong> = &lt;torch.utils.data.dataloader.DataLoader object&gt;<br>
+<strong>train_dl</strong> = &lt;torch.utils.data.dataloader.DataLoader object&gt;<br>
+<strong>xTest</strong> = [array([-0.4889957 ,  0.6615041 ,  1.0276178 ,  0...41209 ,  0.2386246 ,  1.0898517 ], dtype=float32), array([ 1.606316  ,  0.6615041 ,  1.0276178 ,  0...41209 ,  2.1798167 ,  1.0898517 ], dtype=float32), array([ 0.06240209,  0.6615041 , -0.91575545,  0...36752 , -0.7319715 ,  1.0898517 ], dtype=float32), array([ 0.2829612 ,  0.6615041 , -0.91575545,  1...41209 ,  0.2386246 ,  1.0898517 ], dtype=float32), array([ 2.1577137 , -1.5117065 ,  0.05593123, -0...543333,  0.2386246 , -0.52212226], dtype=float32), array([-0.5992753 ,  0.6615041 ,  1.0276178 , -0...543333,  2.1798167 , -0.52212226], dtype=float32), array([-0.26843658,  0.6615041 ,  1.9993045 , -0...41209 , -0.7319715 , -2.1340964 ], dtype=float32), array([ 0.61379987,  0.6615041 , -0.91575545, -0...41209 ,  0.2386246 ,  1.0898517 ], dtype=float32), array([-0.8198344 ,  0.6615041 ,  1.0276178 , -0...543333, -0.7319715 , -0.52212226], dtype=float32), array([ 1.826875  , -1.5117065 , -0.91575545, -1...41209 , -0.7319715 , -0.52212226], dtype=float32), array([ 0.2829612 ,  0.6615041 , -0.91575545,  1...41209 ,  0.2386246 , -2.1340964 ], dtype=float32), array([-2.1431892 , -1.5117065 , -0.91575545,  0...543333, -0.7319715 , -0.52212226], dtype=float32), array([ 0.72407943,  0.6615041 , -0.91575545,  0...543333,  0.2386246 ,  1.0898517 ], dtype=float32), array([ 0.06240209,  0.6615041 , -0.91575545,  1...41209 ,  0.2386246 ,  1.0898517 ], dtype=float32), array([-0.4889957 , -1.5117065 ,  1.0276178 , -0...41209 , -0.7319715 , -0.52212226], dtype=float32), array([ 0.06240209, -1.5117065 , -0.91575545,  2...41209 , -0.7319715 , -0.52212226], dtype=float32), array([ 1.826875  , -1.5117065 ,  0.05593123,  1...543333,  1.2092206 , -0.52212226], dtype=float32), array([-2.1431892 ,  0.6615041 , -0.91575545, -0...543333, -0.7319715 ,  1.0898517 ], dtype=float32), array([-0.15815702,  0.6615041 , -0.91575545,  0...543333, -0.7319715 ,  1.0898517 ], dtype=float32), array([ 1.3857569 , -1.5117065 ,  1.0276178 , -0...41209 , -0.7319715 ,  1.0898517 ], dtype=float32), ...]<br>
+<strong>xTrain</strong> = array([[ 1.7165955 ,  0.6615041 ,  0.05593123, ....       -0.7319715 , -0.52212226]], dtype=float32)<br>
+<strong>yTest</strong> = [array([0.], dtype=float32), array([0.], dtype=float32), array([0.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), ...]<br>
+<strong>yTrain</strong> = array([1., 1., 0., 0., 0., 0., 1., 1., 0., 1., 0..., 1., 0., 1., 1., 1., 1., 1.,
+       0., 1., 1.])</td></tr></table>
+</body></html>
