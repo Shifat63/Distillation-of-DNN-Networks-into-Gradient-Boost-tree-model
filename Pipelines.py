@@ -54,7 +54,7 @@ def firstPipeline(train_dl, model, xTest, yTest):
     acc = gbt.testGbt(gbtModel, np.array(xTest), yTest)
     print('GBT(only soft labels) Accuracy: %.3f' % (acc * 100.0))
     # Show tree. 15 is the block size
-    gbt.showTree(gbtModel, 15, 'Pipeline 1')
+    # gbt.showTree(gbtModel, 15, 'Pipeline 1')
 
 
 def secondPipeline(train_dl, model, xTest, yTest):
@@ -91,7 +91,7 @@ def secondPipeline(train_dl, model, xTest, yTest):
     acc = gbt.testGbt(gbtModel, np.array(xTest), yTest)
     print('GBT(with helper classifier) Accuracy: %.3f' % (acc * 100.0))
     # Show tree. 15 is the block size
-    gbt.showTree(gbtModel, 15, 'Pipeline 2')
+    # gbt.showTree(gbtModel, 15, 'Pipeline 2')
 
 
 def gbtWithHardLabels(xTrain, yTrain, xTest, yTest):
@@ -116,7 +116,7 @@ def gbtWithHardLabels(xTrain, yTrain, xTest, yTest):
     acc = gbt.testGbt(gbtModel, np.array(xTest), yTest)
     print('GBT(hard labels) Accuracy: %.3f' % (acc * 100.0))
     # Show tree. 15 is the block size
-    gbt.showTree(gbtModel, 15, 'GBT(Trained with hard labels)')
+    # gbt.showTree(gbtModel, 15, 'GBT(Trained with hard labels)')
 
 
 # Getting train and test data from specified csv
@@ -138,7 +138,7 @@ yTrain = np.array(yTrain)
 # define the NN
 model = nn.MLP(13)
 # Train NN and save the trained model for future use.
-trainAndSaveNN(train_dl, test_dl, model)
+# trainAndSaveNN(train_dl, test_dl, model)
 # Load trained model.
 model.load_state_dict(torch.load('trainedNN.pt'))
 # test the NN
@@ -149,4 +149,4 @@ print('NN Accuracy: %.3f' % (acc * 100.0))
 firstPipeline(train_dl, model, xTest, yTest)
 # Calling second pipeline
 secondPipeline(train_dl, model, xTest, yTest)
-# gbtWithHardLabels(xTrain, yTrain, xTest, yTest)
+gbtWithHardLabels(xTrain, yTrain, xTest, yTest)
