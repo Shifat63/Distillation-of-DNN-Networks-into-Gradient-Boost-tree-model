@@ -32,7 +32,7 @@ def firstPipeline(train_dl, model, xTest, yTest):
     2. Train GBT with the soft labels
 
     Finally it calculates the accuracy of trained GBT model
-    with respect to test data.
+    with respect to test data and plot decision trees.
 
     Parameters
     ----------
@@ -53,8 +53,8 @@ def firstPipeline(train_dl, model, xTest, yTest):
     # Calculating accuracy
     acc = gbt.testGbt(gbtModel, np.array(xTest), yTest)
     print('GBT(only soft labels) Accuracy: %.3f' % (acc * 100.0))
-    # Show tree. 15 is the block size
-    # gbt.showTree(gbtModel, 15)
+    # Show tree. 10 is the block size
+    gbt.showTree(gbtModel, 5, 'Pipeline 1')
 
 
 def secondPipeline(train_dl, model, xTest, yTest):
@@ -65,7 +65,7 @@ def secondPipeline(train_dl, model, xTest, yTest):
     3. Train GBT with the soft labels obtained from helper classifier
 
     Finally it calculates the accuracy of trained GBT model
-    with respect to test data.
+    with respect to test data and plot decision trees.
 
     Parameters
     ----------
@@ -90,13 +90,13 @@ def secondPipeline(train_dl, model, xTest, yTest):
     # Calculating accuracy
     acc = gbt.testGbt(gbtModel, np.array(xTest), yTest)
     print('GBT(with helper classifier) Accuracy: %.3f' % (acc * 100.0))
-    # Show tree. 15 is the block size
-    # gbt.showTree(gbtModel, 15)
+    # Show tree. 10 is the block size
+    gbt.showTree(gbtModel, 5, 'Pipeline 2')
 
 
 def gbtWithHardLabels(xTrain, yTrain, xTest, yTest):
     '''
-    Train GBT with Hard labels and calculate it's accuracy with test data.
+    Train GBT with Hard labels, calculate it's accuracy with test data and plot decision trees.
 
     Parameters
     ----------
@@ -115,8 +115,8 @@ def gbtWithHardLabels(xTrain, yTrain, xTest, yTest):
     # Calculating accuracy
     acc = gbt.testGbt(gbtModel, np.array(xTest), yTest)
     print('GBT(hard labels) Accuracy: %.3f' % (acc * 100.0))
-    # Show tree. 15 is the block size
-    # gbt.showTree(gbtModel, 15)
+    # Show tree. 10 is the block size
+    gbt.showTree(gbtModel, 10, 'GBT(Trained with hard labels)')
 
 
 # Getting train and test data from specified csv

@@ -61,7 +61,7 @@ def testGbt(model, X, y):
     return acc
 
 #Show GBT trees. Last one from each block
-def showTree(model, blockSize):
+def showTree(model, blockSize, title):
     '''
     Show GBT trees. Last tree from each block.
     To save computational power all the trees generated are not shown.
@@ -71,6 +71,7 @@ def showTree(model, blockSize):
     ----------
     model : trained GBT model
     blockSize : size of block from which last tree will be shown
+    title : Title of the figure
 
     Returns
     -------
@@ -78,5 +79,6 @@ def showTree(model, blockSize):
 
     '''
     for i in range(int(maxNumberOfTrees/blockSize)):
-        plot_tree(model, num_trees=i*blockSize+(blockSize-1))
+        ax = plot_tree(model, num_trees=i*blockSize+(blockSize-1))
+        ax.title.set_text(title + ', Tree number: ' + str(i*blockSize+blockSize))
         plt.show()

@@ -34,7 +34,7 @@
 2.&nbsp;Train&nbsp;GBT&nbsp;with&nbsp;the&nbsp;soft&nbsp;labels<br>
 &nbsp;<br>
 Finally&nbsp;it&nbsp;calculates&nbsp;the&nbsp;accuracy&nbsp;of&nbsp;trained&nbsp;GBT&nbsp;model<br>
-with&nbsp;respect&nbsp;to&nbsp;test&nbsp;data.<br>
+with&nbsp;respect&nbsp;to&nbsp;test&nbsp;data&nbsp;and&nbsp;plot&nbsp;decision&nbsp;trees.<br>
 &nbsp;<br>
 Parameters<br>
 ----------<br>
@@ -46,7 +46,7 @@ yTest&nbsp;:&nbsp;Desired(actual)&nbsp;outputs&nbsp;for&nbsp;test&nbsp;inputs<br
 Returns<br>
 -------<br>
 None.</tt></dd></dl>
- <dl><dt><a name="-gbtWithHardLabels"><strong>gbtWithHardLabels</strong></a>(xTrain, yTrain, xTest, yTest)</dt><dd><tt>Train&nbsp;GBT&nbsp;with&nbsp;Hard&nbsp;labels&nbsp;and&nbsp;calculate&nbsp;it's&nbsp;accuracy&nbsp;with&nbsp;test&nbsp;data.<br>
+ <dl><dt><a name="-gbtWithHardLabels"><strong>gbtWithHardLabels</strong></a>(xTrain, yTrain, xTest, yTest)</dt><dd><tt>Train&nbsp;GBT&nbsp;with&nbsp;Hard&nbsp;labels,&nbsp;calculate&nbsp;it's&nbsp;accuracy&nbsp;with&nbsp;test&nbsp;data&nbsp;and&nbsp;plot&nbsp;decision&nbsp;trees.<br>
 &nbsp;<br>
 Parameters<br>
 ----------<br>
@@ -64,7 +64,7 @@ None.</tt></dd></dl>
 3.&nbsp;Train&nbsp;GBT&nbsp;with&nbsp;the&nbsp;soft&nbsp;labels&nbsp;obtained&nbsp;from&nbsp;helper&nbsp;classifier<br>
 &nbsp;<br>
 Finally&nbsp;it&nbsp;calculates&nbsp;the&nbsp;accuracy&nbsp;of&nbsp;trained&nbsp;GBT&nbsp;model<br>
-with&nbsp;respect&nbsp;to&nbsp;test&nbsp;data.<br>
+with&nbsp;respect&nbsp;to&nbsp;test&nbsp;data&nbsp;and&nbsp;plot&nbsp;decision&nbsp;trees.<br>
 &nbsp;<br>
 Parameters<br>
 ----------<br>
@@ -96,7 +96,7 @@ None.</tt></dd></dl>
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>acc</strong> = 0.9675324675324676<br>
 <strong>i</strong> = 716<br>
-<strong>inputs</strong> = tensor([[-0.5993, -1.5117,  0.0559,  0.1364,  0....   -0.7123, -0.9123, -0.6241, -0.7320, -0.5221]])<br>
+<strong>inputs</strong> = tensor([[ 0.8344, -1.5117, -0.9158,  0.4791,  2....   -0.7123,  0.1094, -0.6241, -0.7320, -0.5221]])<br>
 <strong>model</strong> = MLP(
   (hidden1): Linear(in_features=13, out_fea... out_features=1, bias=True)
   (act3): Sigmoid()
@@ -104,9 +104,9 @@ None.</tt></dd></dl>
 <strong>targets</strong> = tensor([[1.]])<br>
 <strong>test_dl</strong> = &lt;torch.utils.data.dataloader.DataLoader object&gt;<br>
 <strong>train_dl</strong> = &lt;torch.utils.data.dataloader.DataLoader object&gt;<br>
-<strong>xTest</strong> = [array([-0.4889957 ,  0.6615041 ,  1.0276178 ,  0...41209 ,  0.2386246 ,  1.0898517 ], dtype=float32), array([ 1.606316  ,  0.6615041 ,  1.0276178 ,  0...41209 ,  2.1798167 ,  1.0898517 ], dtype=float32), array([ 0.06240209,  0.6615041 , -0.91575545,  0...36752 , -0.7319715 ,  1.0898517 ], dtype=float32), array([ 0.2829612 ,  0.6615041 , -0.91575545,  1...41209 ,  0.2386246 ,  1.0898517 ], dtype=float32), array([ 2.1577137 , -1.5117065 ,  0.05593123, -0...543333,  0.2386246 , -0.52212226], dtype=float32), array([-0.5992753 ,  0.6615041 ,  1.0276178 , -0...543333,  2.1798167 , -0.52212226], dtype=float32), array([-0.26843658,  0.6615041 ,  1.9993045 , -0...41209 , -0.7319715 , -2.1340964 ], dtype=float32), array([ 0.61379987,  0.6615041 , -0.91575545, -0...41209 ,  0.2386246 ,  1.0898517 ], dtype=float32), array([-0.8198344 ,  0.6615041 ,  1.0276178 , -0...543333, -0.7319715 , -0.52212226], dtype=float32), array([ 1.826875  , -1.5117065 , -0.91575545, -1...41209 , -0.7319715 , -0.52212226], dtype=float32), array([ 0.2829612 ,  0.6615041 , -0.91575545,  1...41209 ,  0.2386246 , -2.1340964 ], dtype=float32), array([-2.1431892 , -1.5117065 , -0.91575545,  0...543333, -0.7319715 , -0.52212226], dtype=float32), array([ 0.72407943,  0.6615041 , -0.91575545,  0...543333,  0.2386246 ,  1.0898517 ], dtype=float32), array([ 0.06240209,  0.6615041 , -0.91575545,  1...41209 ,  0.2386246 ,  1.0898517 ], dtype=float32), array([-0.4889957 , -1.5117065 ,  1.0276178 , -0...41209 , -0.7319715 , -0.52212226], dtype=float32), array([ 0.06240209, -1.5117065 , -0.91575545,  2...41209 , -0.7319715 , -0.52212226], dtype=float32), array([ 1.826875  , -1.5117065 ,  0.05593123,  1...543333,  1.2092206 , -0.52212226], dtype=float32), array([-2.1431892 ,  0.6615041 , -0.91575545, -0...543333, -0.7319715 ,  1.0898517 ], dtype=float32), array([-0.15815702,  0.6615041 , -0.91575545,  0...543333, -0.7319715 ,  1.0898517 ], dtype=float32), array([ 1.3857569 , -1.5117065 ,  1.0276178 , -0...41209 , -0.7319715 ,  1.0898517 ], dtype=float32), ...]<br>
-<strong>xTrain</strong> = array([[ 1.7165955 ,  0.6615041 ,  0.05593123, ....       -0.7319715 , -0.52212226]], dtype=float32)<br>
-<strong>yTest</strong> = [array([0.], dtype=float32), array([0.], dtype=float32), array([0.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), ...]<br>
-<strong>yTrain</strong> = array([1., 1., 0., 0., 0., 0., 1., 1., 0., 1., 0..., 1., 0., 1., 1., 1., 1., 1.,
-       0., 1., 1.])</td></tr></table>
+<strong>xTest</strong> = [array([-0.37871614,  0.6615041 ,  1.0276178 , -0...41209 , -0.7319715 , -0.52212226], dtype=float32), array([ 1.1651977 ,  0.6615041 , -0.91575545, -1...543333,  1.2092206 , -2.1340964 ], dtype=float32), array([-1.3712322 ,  0.6615041 ,  1.0276178 , -0...543333, -0.7319715 , -0.52212226], dtype=float32), array([-1.2609526 ,  0.6615041 , -0.91575545, -1...543333, -0.7319715 ,  1.0898517 ], dtype=float32), array([ 0.17268166, -1.5117065 ,  0.05593123,  0...41209 , -0.7319715 , -0.52212226], dtype=float32), array([ 1.3857569 ,  0.6615041 ,  1.0276178 ,  1...41209 , -0.7319715 ,  1.0898517 ], dtype=float32), array([-0.9301139 ,  0.6615041 ,  0.05593123, -1...543333, -0.7319715 ,  1.0898517 ], dtype=float32), array([-1.150673  ,  0.6615041 , -0.91575545, -1...543333,  0.2386246 , -0.52212226], dtype=float32), array([ 0.72407943, -1.5117065 , -0.91575545, -0...543333, -0.7319715 , -0.52212226], dtype=float32), array([-0.8198344 ,  0.6615041 ,  1.0276178 , -0...543333, -0.7319715 , -0.52212226], dtype=float32), array([ 0.39324075, -1.5117065 ,  1.0276178 , -0...543333, -0.7319715 , -0.52212226], dtype=float32), array([-1.0403935 , -1.5117065 ,  0.05593123, -1...41209 , -0.7319715 , -0.52212226], dtype=float32), array([ 0.17268166,  0.6615041 ,  0.05593123, -0...543333, -0.7319715 ,  1.0898517 ], dtype=float32), array([-1.150673  ,  0.6615041 , -0.91575545, -0...36752 , -0.7319715 , -2.1340964 ], dtype=float32), array([-0.26843658,  0.6615041 , -0.91575545, -1...543333,  0.2386246 , -0.52212226], dtype=float32), array([-0.26843658,  0.6615041 , -0.91575545, -0...41209 , -0.7319715 , -3.7460701 ], dtype=float32), array([ 0.834359  ,  0.6615041 ,  0.05593123, -0...543333, -0.7319715 , -0.52212226], dtype=float32), array([-1.4815117 ,  0.6615041 ,  1.0276178 , -1...543333, -0.7319715 , -0.52212226], dtype=float32), array([-1.4815117 ,  0.6615041 ,  0.05593123,  0...41209 , -0.7319715 , -2.1340964 ], dtype=float32), array([ 0.06240209,  0.6615041 , -0.91575545,  0...36752 , -0.7319715 ,  1.0898517 ], dtype=float32), ...]<br>
+<strong>xTrain</strong> = array([[ 0.17268166,  0.6615041 , -0.91575545, ....       -0.7319715 , -0.52212226]], dtype=float32)<br>
+<strong>yTest</strong> = [array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), array([0.], dtype=float32), array([0.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), array([1.], dtype=float32), array([0.], dtype=float32), ...]<br>
+<strong>yTrain</strong> = array([0., 0., 0., 0., 1., 1., 0., 1., 1., 0., 1..., 1., 0., 0., 0., 0., 1., 0.,
+       1., 1., 1.])</td></tr></table>
 </body></html>
