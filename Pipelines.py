@@ -53,8 +53,8 @@ def firstPipeline(train_dl, model, xTest, yTest):
     # Calculating accuracy
     acc = gbt.testGbt(gbtModel, np.array(xTest), yTest)
     print('GBT(only soft labels) Accuracy: %.3f' % (acc * 100.0))
-    # Show tree. 10 is the block size
-    gbt.showTree(gbtModel, 5, 'Pipeline 1')
+    # Show tree. 15 is the block size
+    gbt.showTree(gbtModel, 15, 'Pipeline 1')
 
 
 def secondPipeline(train_dl, model, xTest, yTest):
@@ -90,8 +90,8 @@ def secondPipeline(train_dl, model, xTest, yTest):
     # Calculating accuracy
     acc = gbt.testGbt(gbtModel, np.array(xTest), yTest)
     print('GBT(with helper classifier) Accuracy: %.3f' % (acc * 100.0))
-    # Show tree. 10 is the block size
-    gbt.showTree(gbtModel, 5, 'Pipeline 2')
+    # Show tree. 15 is the block size
+    gbt.showTree(gbtModel, 15, 'Pipeline 2')
 
 
 def gbtWithHardLabels(xTrain, yTrain, xTest, yTest):
@@ -115,8 +115,8 @@ def gbtWithHardLabels(xTrain, yTrain, xTest, yTest):
     # Calculating accuracy
     acc = gbt.testGbt(gbtModel, np.array(xTest), yTest)
     print('GBT(hard labels) Accuracy: %.3f' % (acc * 100.0))
-    # Show tree. 10 is the block size
-    gbt.showTree(gbtModel, 10, 'GBT(Trained with hard labels)')
+    # Show tree. 15 is the block size
+    gbt.showTree(gbtModel, 15, 'GBT(Trained with hard labels)')
 
 
 # Getting train and test data from specified csv
